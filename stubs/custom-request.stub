@@ -1,0 +1,18 @@
+<?php
+
+namespace DummyNamespace;
+
+use App\Http\Requests\Api\V1\BaseFormRequest;
+
+class DummyClass extends BaseFormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+    public function rules(): array
+    {
+        return [
+        ];
+    }
+}
