@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "aacf5876-96a3-4979-ba1d-6859f1cb06c0",
+		"name": "App Square",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17915143"
+	},
+	"item": [
+		{
+			"name": "Tables",
+			"item": [
+				{
+					"name": "get-All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{app_url}}/table",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\" : \"Table-0001\",\r\n    \"capacity\" : 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/table",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "number",
+									"value": "Table-0001",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PATCH",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app_url}}/table/1",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"table",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "number",
+									"value": "Table-0001",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "_method",
+									"value": "PATCH",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app_url}}/table/1",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"table",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{app_url}}/table/1/restore",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"table",
+								"1",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Availability",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\" : \"13-05-2025\",\r\n    \"time\" : \"14:00\",\r\n    \"guests\" : 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/tables/check-availability",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"tables",
+								"check-availability"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menu Categories",
+			"item": [
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\" : \"13-05-2025\",\r\n    \"time\" : \"14:00\",\r\n    \"guests\" : 8\r\n}"
+						},
+						"url": {
+							"raw": "{{app_url}}/menu-category",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"menu-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "حلويات شرقية 222222",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "حلويات شرقية",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": [
+										"7p2F79Scg/pexels-anjana-c-169994-674010.jpg",
+										"n3T-7uj_F/b8a874d9-367e-4d61-be33-576224dd6a9e.jfif"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app_url}}/menu-category",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"menu-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "حلويات شرقية 222222",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "حلويات شرقية",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "n3T-7uj_F/b8a874d9-367e-4d61-be33-576224dd6a9e.jfif"
+								},
+								{
+									"key": "_method",
+									"value": "PATCH",
+									"type": "text"
+								},
+								{
+									"key": "old_media[]",
+									"value": "http://127.0.0.1:8000/storage/14/pexels-anjana-c-169994-674010.jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app_url}}/menu-category/13",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"menu-category",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "حلويات شرقية 222222",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "حلويات شرقية",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "n3T-7uj_F/b8a874d9-367e-4d61-be33-576224dd6a9e.jfif"
+								},
+								{
+									"key": "_method",
+									"value": "PATCH",
+									"type": "text"
+								},
+								{
+									"key": "old_media[]",
+									"value": "http://127.0.0.1:8000/storage/14/pexels-anjana-c-169994-674010.jpg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app_url}}/menu-category/12",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"menu-category",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menus",
+			"item": [
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "حلويات شرقية 222222",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "حلويات شرقية",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": [
+										"7p2F79Scg/pexels-anjana-c-169994-674010.jpg",
+										"n3T-7uj_F/b8a874d9-367e-4d61-be33-576224dd6a9e.jfif"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app_url}}/menus",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"menus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "طبق شوربة",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "25.00",
+									"type": "text"
+								},
+								{
+									"key": "daily_availability",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "discount_amount",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "discount_type",
+									"value": "percentage",
+									"type": "text"
+								},
+								{
+									"key": "discount_start_at",
+									"value": "2025-05-13",
+									"type": "text"
+								},
+								{
+									"key": "discount_endt_at",
+									"value": "2025-05-15",
+									"type": "text"
+								},
+								{
+									"key": "is_active",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "images[]",
+									"type": "file",
+									"src": "tR9DhfdmL/unnamed.png",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{app_url}}/menus",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"menus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "Add New",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"table_id\": 3,\r\n  \"customer_name\": \"John Doe\",\r\n  \"customer_phone\": \"1234567890\",\r\n  \"reservation_date\": \"2025-05-15\",\r\n  \"reservation_time\": \"18:30:00\",\r\n  \"guest_count\": 4,\r\n  \"special_requests\": \"Corner table please\",\r\n  \"items\": [\r\n    {\r\n      \"menu_item_id\": 1,\r\n      \"quantity\": 35\r\n    },\r\n    {\r\n      \"menu_item_id\": 2,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/create-reseravation",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"create-reseravation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "app_url",
+			"value": "http://127.0.0.1:8000/api/v1",
+			"type": "string"
+		}
+	]
+}
