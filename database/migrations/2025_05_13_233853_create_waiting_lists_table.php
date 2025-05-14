@@ -6,35 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('waiting_lists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('table_id')->constrained()->onDelete('cascade');
             $table->string('customer_name');
             $table->string('customer_phone');
             $table->date('reservation_date');
             $table->time('reservation_time');
             $table->integer('guest_count');
             $table->text('special_requests')->nullable();
-            $table->enum('status', ['reserved', 'completed','cancelled'])->default('completed');
+            $table->boolean('notified')->default(false);
             $table->timestamps();
-            // Indexes
-
-            $table->index('table_id');
-            $table->index('reservation_date');
-            $table->index('status');
-
+            $table->index(['reservation_date', 'reservation_time']);
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('waiting_lists');
     }
 };

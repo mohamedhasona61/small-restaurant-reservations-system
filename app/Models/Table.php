@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Table extends Model
 {
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $fillable = ['number', 'capacity', 'is_active'];
     protected $casts = [
         'is_active' => 'boolean',
@@ -22,15 +23,7 @@ class Table extends Model
     {
         return $query->where('is_active', true);
     }
-    public function isAvailable($date, $time)
-    {
-        return !$this->reservations()
-            ->where('reservation_date', $date)
-            ->where('reservation_time', $time)
-            ->whereIn('status', ['reserved', 'completed'])
-            ->exists();
-    }
-    public static function availableTables($date, $time, $guests)
+    public static function scopeAvailable($date, $time, $guests)
     {
         return self::where('is_active', true)
             ->where('capacity', '>=', $guests)

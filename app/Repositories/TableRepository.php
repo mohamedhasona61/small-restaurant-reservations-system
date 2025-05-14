@@ -31,15 +31,7 @@ class TableRepository implements TableRepositoryInterface
     }
     public function availableTables(string $date, string $time, int $guests): Collection
     {
-        return Table::where('is_active', true)
-            ->where('capacity', '>=', $guests)
-            ->withCount(['reservations' => function ($query) use ($date, $time) {
-                $query->where('reservation_date', $date)
-                    ->where('reservation_time', $time)
-                    ->whereIn('status', ['confirmed', 'pending']);
-            }])
-            ->having('reservations_count', 0)
-            ->get();
+        return Table::available()->get();
     }
     public function allWithTrashed(): Collection
     {
