@@ -13,9 +13,10 @@ class WaitingList extends Model
         'reservation_time',
         'guest_count',
         'special_requests',
+        'table_id',
         'notified'
     ];
-    
+
     protected $casts = [
         'reservation_date' => 'date',
         'reservation_time' => 'time',
